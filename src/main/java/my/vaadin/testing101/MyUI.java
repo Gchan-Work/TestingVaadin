@@ -6,6 +6,7 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Widgetset;
 import static com.vaadin.server.FontAwesome.*;
+import com.vaadin.server.Page;
 import com.vaadin.server.UserError;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
@@ -14,6 +15,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
+import static com.vaadin.ui.Notification.*;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
@@ -50,6 +52,11 @@ public class MyUI extends UI {
         });
        // textfield.setComponentError(new UserError("Bad value"));
         button.setComponentError(new UserError("Bad click"));
+        
+       Notification note = new Notification("This is a warning","<br/>This is the <i>last</i> warning", TYPE_WARNING_MESSAGE);
+        note.setHtmlContentAllowed(true);
+        note.show(Page.getCurrent());
+        
         
         //Adding Label
         layout.addComponent(new Label("Hello World"));
