@@ -5,6 +5,8 @@ import javax.servlet.annotation.WebServlet;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Widgetset;
+import com.vaadin.data.Property;
+import com.vaadin.data.Property.ValueChangeEvent;
 import static com.vaadin.server.FontAwesome.*;
 import com.vaadin.server.Page;
 import com.vaadin.server.UserError;
@@ -16,6 +18,7 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import static com.vaadin.ui.Notification.*;
+import com.vaadin.ui.Slider;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
@@ -56,6 +59,27 @@ public class MyUI extends UI {
        Notification note = new Notification("This is a warning","<br/>This is the <i>last</i> warning", TYPE_WARNING_MESSAGE);
         note.setHtmlContentAllowed(true);
         note.show(Page.getCurrent());
+        
+        Slider slider = new Slider("Drag the point");
+        slider.setWidth(15, UNITS_EM);
+        slider.setMin(0.0);
+        slider.setMax(10.0);
+        slider.setValue(5.0);
+        slider.setImmediate(true);
+        //slider.getCaption();
+        
+        
+        
+//        slider.addValueChangeListener(new Property.ValueChangeListener() {
+//            public void valueChange(ValueChangeEvent event) {
+//        String qw =  Double.toString(slider.getValue());
+//        layout.addComponent(new Label(qw));
+//            }
+//        });
+        
+        layout.addComponent(slider);
+        
+        
         
         
         //Adding Label
