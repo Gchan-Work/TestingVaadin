@@ -69,13 +69,16 @@ public class MyUI extends UI {
         //slider.getCaption();
         
         
+        TextField display = new TextField();
+        layout.addComponent(display);
+        display.setCaption("Score");
         
-//        slider.addValueChangeListener(new Property.ValueChangeListener() {
-//            public void valueChange(ValueChangeEvent event) {
-//        String qw =  Double.toString(slider.getValue());
-//        layout.addComponent(new Label(qw));
-//            }
-//        });
+        slider.addValueChangeListener(new Property.ValueChangeListener() {
+            public void valueChange(ValueChangeEvent event) {
+        String qw =  Double.toString(slider.getValue());
+        display.setValue(qw);
+            }
+        });
         
         layout.addComponent(slider);
         
